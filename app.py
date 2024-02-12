@@ -14,4 +14,3 @@ con = st.connection('gsheets', type=GSheetsConnection)
 data = con.read(worksheet='Bewerbungen', usecols=list(range(8)), ttl=5)
 data.dropna(how='all', inplace=True)
 
-st.dataframe(data)
