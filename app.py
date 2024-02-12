@@ -12,5 +12,6 @@ con = st.connection('gsheets', type=GSheetsConnection)
 # ttl=5 sekunden (wie oft die Daten aktualisiert werden, Standard ist 60 Min.)
 # Gibt autom. Pandas Dataframe zurück
 data = con.read(worksheet='Bewerbungen', usecols=list(range(8)), ttl=5)
+data.dropna(how='all', inplace=True)
 
 st.dataframe(data)
